@@ -1,0 +1,16 @@
+{
+    "name": "apigateway",
+    "version": "0.0.1",
+    "description": "Api Gateway Banco MisionTIC",
+    "main": "src/index",
+    "scripts": {},
+    "author": "Juan Camilo Castro",
+    "license": "MIT",
+    "dependencies": {
+        "apollo-datasource-rest": "^3.1.1",
+        "apollo-server": "^3.1.2",
+        "graphql": "^15.5.1",
+        "lodash": "^4.17.21",
+        "node-fetch": "^2.6.1"
+    }
+}
