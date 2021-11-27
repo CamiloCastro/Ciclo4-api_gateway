@@ -16,11 +16,11 @@ const transactionTypeDefs = gql `
         date: String!
     }
 
-    type Query {
+    extend type Query {
         transactionByUsername(username: String!): [Transaction]
     }
 
-    type Mutation {
+    extend type Mutation {
         createTransaction(transaction: TransactionInput!) : Transaction
     }
 

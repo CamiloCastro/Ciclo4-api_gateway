@@ -2,9 +2,9 @@ const serverConfig = require('../server');
 const fetch = require('node-fetch');
 const { ApolloError } = require('apollo-server-errors');
 
-const authentication = async ( { request } ) => {    
+const authentication = async ( { req } ) => {    
 
-    const token = request.headers.authorization || '';
+    const token = req.headers.authorization || '';
 
     if (token == '')
         return { userIdToken: null }
@@ -25,7 +25,7 @@ const authentication = async ( { request } ) => {
                 requestOptions
             );
 
-            if( response.status != 200) {
+            if( response.status != 201) {
                 console.log(response);
                 throw new ApolloError(`NO AUTORIZADO - ${401}`, 401);
             }

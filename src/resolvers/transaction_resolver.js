@@ -3,9 +3,9 @@ const transactionResolver = {
     Query: {
 
         transactionByUsername: async (_, { username }, { dataSources, userIdToken }) => {
-            usernameToken = ( await dataSources.AuthAPI.getUser(userIdToken)).username;
+            usernameToken = ( await dataSources.authAPI.getUser(userIdToken)).username;
             if(username == usernameToken)
-                return await dataSources.AccountAPI.transactionByUsername(username);
+                return await dataSources.accountAPI.transactionByUsername(username);
             else
                 return null;
         }
@@ -13,10 +13,10 @@ const transactionResolver = {
 
     Mutation: {
 
-        createTransaction: (_, { transaction }, { dataSources, userIdToken }) => {
-            usernameToken = ( await dataSources.AuthAPI.getUser(userIdToken)).username;
+        createTransaction: async (_, { transaction }, { dataSources, userIdToken }) => {
+            usernameToken = ( await dataSources.authAPI.getUser(userIdToken)).username;
             if(transaction.usernameOrigin == usernameToken)
-                return await dataSources.AccountAPI.createTransaction(transaction);
+                return await dataSources.accountAPI.createTransaction(transaction);
             else
                 return null;
         }

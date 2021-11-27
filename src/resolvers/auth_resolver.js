@@ -3,7 +3,7 @@ const authResolver = {
     Query: {
         userDetailById: (_, { userId }, { dataSources, userIdToken }) => {            
             if(userId == userIdToken)
-                return dataSources.AuthAPI.getUser(userId);
+                return dataSources.authAPI.getUser(userId);
             else
                 return null;
         }
@@ -19,7 +19,7 @@ const authResolver = {
                 lastChange: (new Date()).toISOString()
             }
 
-            await dataSources.AccountAPI.createAccount(accountInput);
+            await dataSources.accountAPI.createAccount(accountInput);
 
             const authInput = {
                 username: userInput.username,
@@ -28,15 +28,15 @@ const authResolver = {
                 email: userInput.email
             }
 
-            return await dataSources.AuthAPI.createUser(authInput);
+            return await dataSources.authAPI.createUser(authInput);
         },
 
         logIn: (_, { credentials }, { dataSources }) => {            
-            return dataSources.AuthAPI.authRequest(credentials);
+            return dataSources.authAPI.authRequest(credentials);
         },
 
         refreshToken: (_, { token }, { dataSources }) => {            
-            return dataSources.AuthAPI.refreshToken(token);
+            return dataSources.authAPI.refreshToken(token);
         },
 
     }

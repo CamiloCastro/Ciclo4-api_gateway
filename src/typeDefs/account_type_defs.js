@@ -8,7 +8,7 @@ const accountTypeDefs = gql `
         lastChange: String!
     }
 
-    type Query {
+    extend type Query {
         accountByUsername(username: String!): Account
     }
 `;
