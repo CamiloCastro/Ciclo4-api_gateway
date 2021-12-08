@@ -35,8 +35,8 @@ const authResolver = {
             return dataSources.authAPI.authRequest(credentials);
         },
 
-        refreshToken: (_, { token }, { dataSources }) => {            
-            return dataSources.authAPI.refreshToken(token);
+        refreshToken: (_, { refresh }, { dataSources }) => {            
+            return dataSources.authAPI.refreshToken(refresh);
         },
 
     }

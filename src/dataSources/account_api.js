@@ -19,7 +19,7 @@ class AccountAPI extends RESTDataSource {
 
     async createTransaction(transaction) {
         transaction = new Object(JSON.parse(JSON.stringify(transaction)));
-        return await this.post('/transactions', account);
+        return await this.post('/transactions', transaction);
     }
 
     async transactionByUsername(username) {
